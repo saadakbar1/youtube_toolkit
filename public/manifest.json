@@ -1,0 +1,37 @@
+{
+  "name": "YT Toolkit",
+  "version": "0.1.0",
+  "description": "Saving timestamps, adding notes and auto pause feature for Youtube videos",
+  "permissions": ["storage", "tabs", "scripting", "activeTab", "webNavigation"],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/add.png",
+        "assets/play.png",
+        "assets/delete.png",
+        "assets/edit.png"
+      ],
+      "matches": ["https://*.youtube.com/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
+    },
+    "default_title": " YT Toolkit",
+    "default_popup": "index.html"
+  },
+  "manifest_version": 3
+}
